@@ -1,6 +1,5 @@
-{% extends "base.html" %}
-<link rel="stylesheet" href="bboards.css">
-{% block content %}
+{% extends "base-board.html" %}
+{% block paxboards %}
 {% if user.is_authenticated %}
 <header class="top">
   <h1 class="generic"></h1>
@@ -40,7 +39,7 @@
     <aside class="board-unread-posts">
       {{ board.unread_count }}
     </aside>
-    <aside class="board-unread-posts">
+    <aside class="board-total-posts">
       {{ board.total_count }}
     </aside>
   </section>

@@ -1,6 +1,5 @@
-{% extends "base.html" %}
-<link rel="stylesheet" href="bboards.css">
-{% block content %}
+{% extends "base-board.html" %}
+{% block paxboards %}
 {% if user.is_authenticated %}
 <header class="top">
   <nav class="breadcrumbs"><a href="..">Back to board list</a></nav>

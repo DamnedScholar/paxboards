@@ -1,11 +1,19 @@
 from django.shortcuts import render
 from django.http import Http404, HttpResponseRedirect
+from django.template import loader, RequestContext
 from boards import DefaultBoard
 from models import Post
 from evennia.utils import ansi
 from forms import PostForm, ReplyForm
 
-# Create your views here.
+def paxboards_processor(request):
+    return {
+        'boards': boards, 'board': board, 'board_id': board.id,
+        'threads': threads,
+        'post': post, 'post_id': post,
+        'replies': replies,
+        'can_post': can_post, 'form': form
+    }
 
 def show_boardlist(request):
     if not request.user.is_authenticated or request.user.username == "":
@@ -13,6 +21,7 @@ def show_boardlist(request):
 
     boards = DefaultBoard.objects.get_all_visible_boards(request.user)
     context = {'boards': boards}
+
     # make the variables in 'context' available to the web page template
     return render(request, 'boardlist.html', context)
 
