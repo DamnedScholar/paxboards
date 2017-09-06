@@ -9,6 +9,12 @@ aside.new-thread {
   align: right;
 }
 
+article.error::after {
+  content: "\nThis element is defined entirely in CSS.";
+  color: darkgreen;
+  background-image: url("/static/website/images/evennia_logo.png");
+}
+
 hgroup.board-header {
   position: relative; height: 75px;
 }
